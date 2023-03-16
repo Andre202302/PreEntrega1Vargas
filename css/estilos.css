@@ -1,0 +1,72 @@
+/*------------VARIABLES-------*/
+:root{
+  --grey-color: #808080; /*para guardar el color en esta variable*/
+}
+
+
+/*-------------------------------------------*/
+
+
+html,body {
+  padding: 0px;
+  margin: 0px;
+  font-size: 12px; /* tamaño letra*/
+  font-family: Helvetica; /* tipo de letra*/
+}
+nav{
+  display: flex; /*me ayuda a pasar de vertical a horizontal*/
+  background-color: var(--grey-color);/*estoy llamando la varible donde guarde mi color*/
+  padding: 45px;
+  color: white; /* color del texto */
+  justify-content: space-between;
+  align-items: center; /*alinear hacia el centro vertical los elementos*/
+}
+nav ul{
+  display: flex;
+}
+nav li{
+  padding-left: 20px; /*padding hacia la deracha*/
+  list-style: none;
+}
+nav li a {
+  color: black;
+  text-decoration: none;
+  font-size: 18px;
+}
+nav li a:hover{ /*con esta propiedad hover me cambia de color cuando me paro encima*/
+  color: white;
+}
+/*-------------------Main section--------------*/
+.main_section{
+  text-align: center;
+  color: grey;
+}
+.products{
+  /*background-image: url("./images/curve.jpg"); /*desde css podemos acceder a imagenes y colocarla directamente en la pagina*/
+  background-size: cover;
+  background-position: center top;
+  width: 18%;
+  display: inline;
+
+  }
+  .pk{
+  /*background-image: url("./images/curve.jpg"); /*desde css podemos acceder a imagenes y colocarla directamente en la pagina*/
+  height: 50px;/*se poden algo de altura para ver que la sección esta ahi*/
+  padding: 15px;
+  display: flex;
+
+  }
+.content{
+    background-color: white;
+    padding: 0px;
+    margin-top: 60px;
+    text-align: center;
+    box-shadow: 0 0 1px #c1bcdc;/*para sobrear los bordes*/
+    width: 100px; /*con esta etiqueta hace que el boton tome todo el espacio*/
+    cursor: pointer; /*con esta ponemos la manita en el cursor*/
+  }
+  .brand_image{
+    width: 40%;
+    height: 20px;
+    display: grid;    
+}
