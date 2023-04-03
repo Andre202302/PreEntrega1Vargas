@@ -1,31 +1,79 @@
+alert ("ENVIOS DE MENSAJERIA Y MERCANCIA ES LA MEJOR ELECCION \n RECOGE Y ENTREGA A TIEMPO");
 let pinUsuario = "123";
 let ingreso = false;
-let nomUsuario = prompt("Digita tu nombre de usuario");
 let opcion = 1;
 let saldo = 0;
 let servicio = 1;
-let Light = 10;
-let Medium = 100;
-let Heavy = 1000;
+const Light = 10;
+const Medium = 100;
+const Heavy = 1000;
+let opcionPrincipal = '1'
 
+function inicio(op){
+opcionPrincipal = op;
+}
+inicio(prompt("Ingrese la opcion deseada \n 1-RegIstrate\n 2-Iniciar SesiOn"));
+
+////////////////*******Registro e ingreso de Usuarios******///////////////////////////
+class registros{
+constructor (username,CorreoElectronico,password){
+  this.username = username;
+  this.CorreoElectronico = CorreoElectronico;
+  this.password = password;
+}
+}
+
+const usuario = [];
+usuario.push (new registros("Andre","l_andre@gmail.com",123));
+
+const findUser = (arr,filtro)=>{
+  const encontrado=arr.find((el)=>{
+    return el.username.includes(filtro)
+  })
+  return encontrado;
+}
+
+function findPass (arr,filtro){
+      return arr.find((el)=>{
+    return el.password == filtro;
+  })
+  }
+  function registrado(filtro1,filtro2){
+const userEncontrado = findUser(usuario,filtro1);
+const passEncontrado = findPass(usuario,filtro2);
+if ((userEncontrado!=undefined)&&(passEncontrado!=undefined)) {
+//console.log(userEncontrado);  
+  //console.log("Datos correctos, Bienvenid@")
+  alert("HOLA!"+" "+filtro1+" "+ "Bienvenid@ al servicio de mensajeria");
+    ingreso = true;
+}else{
+  alert("Datos incorrectos: usuario No encontrado");
+  opcion = 5;
+}}
+
+
+function agregarUser(user,mail,pass){
+  usuario.push (new registros (user,mail,pass));
+  menuPrincipal(opcion);
+}
+
+//console.log(opcionPrincipal);
+if (opcionPrincipal =="1") {
+  agregarUser(prompt("Ingrese un nombre de usuario"),
+        prompt("Ingrese su correo electrOnico"),
+        prompt("Digite su password"));
+}else{
+  registrado(prompt("Digita nombre de usuario Registrado"),prompt("Password"));
+}
+
+///////////////*********Opciones de usuario logueado*******//////////////
 function restaSaldo(valorServicio) {
   saldo = saldo - valorServicio;
 }
 
 function menuPrincipal(menu){
   opcion=prompt(
-"Escoge alguna de las siguientes opciones: \n1- Tarifas por peso. \n2 - Recargar Cuenta. \n3 - Consultar Saldo. \n4 - Contratar servicio.\nPresioná 5 para finalizar.");
-}
-
-for (let i = 2; i >= 0; i--) {
-  let pinIngresado = prompt("Ingresa tu PIN Tienes " + (i + 1) + " oportunidades");
-   if (pinIngresado == pinUsuario) {
-    alert("HOLA!"+" "+nomUsuario+" "+ "Bienvenid@ al servicio de mensajeria");
-    ingreso = true;
-    break;
-  } else {
-    alert("Error");
-  }
+"Escoge alguna de las siguientes opciones: \n1- Tarifas por peso. \n2 - Recargar Cuenta. \n3 - Consultar Saldo. \n4 - Contratar servicio.\nPresiona 5 para finalizar.");
 }
 
 if (ingreso) {
